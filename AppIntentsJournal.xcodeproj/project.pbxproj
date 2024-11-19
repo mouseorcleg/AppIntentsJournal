@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5AA66132CECE12700509818 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B778D1332CC28CDC007A7873 /* WidgetKit.framework */; };
+		A5AA66142CECE12700509818 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B778D1352CC28CDC007A7873 /* SwiftUI.framework */; };
+		A5AA66212CECE12900509818 /* AppIntentsJournalWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A5AA66122CECE12700509818 /* AppIntentsJournalWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D3DC77002CD58524001774F6 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = D3DC76FF2CD58524001774F6 /* Collections */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5AA661F2CECE12900509818 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B77A748C2CBE3DCD00599D94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5AA66112CECE12700509818;
+			remoteInfo = AppIntentsJournalWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B778D1442CC28CDE007A7873 /* Embed Foundation Extensions */ = {
@@ -17,6 +30,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				A5AA66212CECE12900509818 /* AppIntentsJournalWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -24,20 +38,65 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5AA66122CECE12700509818 /* AppIntentsJournalWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppIntentsJournalWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B778D1332CC28CDC007A7873 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B778D1352CC28CDC007A7873 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B77A74942CBE3DCD00599D94 /* AppIntentsJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIntentsJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A5AA66222CECE12900509818 /* Exceptions for "AppIntentsJournalWidget" folder in "AppIntentsJournalWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A5AA66112CECE12700509818 /* AppIntentsJournalWidgetExtension */;
+		};
+		A5AA66652CECE39F00509818 /* Exceptions for "AppIntentsJournal" folder in "AppIntentsJournalWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Intents/ConmposeControlIntent.swift,
+				Intents/JournalEntryEntity.swift,
+				Intents/JournalIntents.swift,
+				Intents/OpenJournalIntent.swift,
+				Managers/NavigationManager.swift,
+				Model/DataModel.swift,
+				Model/JournalEntry.swift,
+				Model/NSAttributedStringTransformer.swift,
+			);
+			target = A5AA66112CECE12700509818 /* AppIntentsJournalWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A5AA66152CECE12700509818 /* AppIntentsJournalWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5AA66222CECE12900509818 /* Exceptions for "AppIntentsJournalWidget" folder in "AppIntentsJournalWidgetExtension" target */,
+			);
+			path = AppIntentsJournalWidget;
+			sourceTree = "<group>";
+		};
 		B77A74962CBE3DCD00599D94 /* AppIntentsJournal */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5AA66652CECE39F00509818 /* Exceptions for "AppIntentsJournal" folder in "AppIntentsJournalWidgetExtension" target */,
+			);
 			path = AppIntentsJournal;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A5AA660F2CECE12700509818 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5AA66142CECE12700509818 /* SwiftUI.framework in Frameworks */,
+				A5AA66132CECE12700509818 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B77A74912CBE3DCD00599D94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B77A74962CBE3DCD00599D94 /* AppIntentsJournal */,
+				A5AA66152CECE12700509818 /* AppIntentsJournalWidget */,
 				B778D1322CC28CDC007A7873 /* Frameworks */,
 				B77A74952CBE3DCD00599D94 /* Products */,
 			);
@@ -71,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B77A74942CBE3DCD00599D94 /* AppIntentsJournal.app */,
+				A5AA66122CECE12700509818 /* AppIntentsJournalWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +139,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A5AA66112CECE12700509818 /* AppIntentsJournalWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5AA66232CECE12900509818 /* Build configuration list for PBXNativeTarget "AppIntentsJournalWidgetExtension" */;
+			buildPhases = (
+				A5AA660E2CECE12700509818 /* Sources */,
+				A5AA660F2CECE12700509818 /* Frameworks */,
+				A5AA66102CECE12700509818 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A5AA66152CECE12700509818 /* AppIntentsJournalWidget */,
+			);
+			name = AppIntentsJournalWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = AppIntentsJournalWidgetExtension;
+			productReference = A5AA66122CECE12700509818 /* AppIntentsJournalWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B77A74932CBE3DCD00599D94 /* AppIntentsJournal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77A74A42CBE3DCF00599D94 /* Build configuration list for PBXNativeTarget "AppIntentsJournal" */;
@@ -90,6 +173,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A5AA66202CECE12900509818 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B77A74962CBE3DCD00599D94 /* AppIntentsJournal */,
@@ -109,9 +193,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					A5AA66112CECE12700509818 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					B77A74932CBE3DCD00599D94 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -135,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				B77A74932CBE3DCD00599D94 /* AppIntentsJournal */,
+				A5AA66112CECE12700509818 /* AppIntentsJournalWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A5AA66102CECE12700509818 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B77A74922CBE3DCD00599D94 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +245,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A5AA660E2CECE12700509818 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B77A74902CBE3DCD00599D94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,7 +261,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A5AA66202CECE12900509818 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5AA66112CECE12700509818 /* AppIntentsJournalWidgetExtension */;
+			targetProxy = A5AA661F2CECE12900509818 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A5AA66242CECE12900509818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YYH8RCT74N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppIntentsJournalWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppIntentsJournalWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple-evangelism.com.AppIntentsJournal.AppIntentsJournalWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5AA66252CECE12900509818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YYH8RCT74N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppIntentsJournalWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AppIntentsJournalWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apple-evangelism.com.AppIntentsJournal.AppIntentsJournalWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B77A74A22CBE3DCF00599D94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,6 +508,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A5AA66232CECE12900509818 /* Build configuration list for PBXNativeTarget "AppIntentsJournalWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5AA66242CECE12900509818 /* Debug */,
+				A5AA66252CECE12900509818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B77A748F2CBE3DCD00599D94 /* Build configuration list for PBXProject "AppIntentsJournal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

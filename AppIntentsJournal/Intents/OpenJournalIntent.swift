@@ -36,3 +36,20 @@ struct OpenJournalIntent: OpenIntent {
         }
     }
 }
+
+struct ComposeNewJournalEntry: AppIntent {
+    static var title: LocalizedStringResource = "Compose New Journal Entry"
+    static var description: IntentDescription? = IntentDescription("Opens the app and starts composing a new journal entry")
+    
+    @Dependency
+    private var navigation: NavigationManager
+    
+    static var openAppWhenRun: Bool = true
+    
+    @MainActor
+    func perform() async throws -> some IntentResult {
+        navigation.composeNewJournalEntry()
+        return .result()
+    }
+    
+}
