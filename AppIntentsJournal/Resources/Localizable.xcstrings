@@ -13,9 +13,6 @@
     "Cancel" : {
 
     },
-    "Created ✍️" : {
-
-    },
     "Done" : {
       "comment" : "Button title when done editing journal entry"
     },
@@ -48,6 +45,9 @@
     },
     "New Journal Entry" : {
       "comment" : "Navigation title when creating a new journal entry"
+    },
+    "Noted ✍️" : {
+
     },
     "Open Journal Entry" : {
 
