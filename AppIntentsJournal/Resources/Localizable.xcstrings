@@ -4,10 +4,16 @@
     "Add" : {
       "comment" : "Button title when done creating a new journal entry"
     },
+    "Adds a mood entry to the journal" : {
+
+    },
     "AppIntentsJournal" : {
 
     },
     "Cancel" : {
+
+    },
+    "Created ✍️" : {
 
     },
     "Done" : {
@@ -22,10 +28,22 @@
     "How are you feeling today?" : {
 
     },
+    "How are you?" : {
+
+    },
+    "I created a new journal entry for you!" : {
+
+    },
     "Journal Entry" : {
 
     },
     "Keep track of your developer mindset.\nAdd a new entry to get started." : {
+
+    },
+    "Mood check-in" : {
+
+    },
+    "Mood Check-In" : {
 
     },
     "New Journal Entry" : {
