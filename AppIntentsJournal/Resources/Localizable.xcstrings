@@ -34,7 +34,7 @@
     "Open Journal Entry" : {
 
     },
-    "Shows details for journal entry" : {
+    "Shows the details for a specific journal entry." : {
 
     },
     "Start journaling" : {
@@ -44,9 +44,6 @@
 
     },
     "Title" : {
-
-    },
-    "Unimplemented" : {
 
     }
   },

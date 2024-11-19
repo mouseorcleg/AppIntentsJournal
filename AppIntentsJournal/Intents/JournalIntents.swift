@@ -28,7 +28,7 @@ struct CreateJournalEntryIntent {
     var mood: DeveloperStateOfMind?
     
     func perform() async throws -> some ReturnsValue<JournalEntryEntity> {
-        
+        do {
         //NOTE: SwiftData thing happening
         //not a main context
         let modelContext = ModelContext(DataModel.shared.modelContainer)
@@ -36,9 +36,12 @@ struct CreateJournalEntryIntent {
         modelContext.insert(entry)
         try modelContext.save()
         
-        try await CSSearchableIndex.default().indexAppEntities([JournalEntryEntity(item: entry)])
+        try await CSSearchableIndex.default().indexAppEntities([entry.entity])
         
-        return .result(value: JournalEntryEntity(item: entry))
+        return .result(value: entry.entity)
+        } catch {
+            throw IntentError.noEntity
+        }
     }
 }
 

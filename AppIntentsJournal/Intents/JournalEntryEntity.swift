@@ -8,17 +8,15 @@
 import AppIntents
 import CoreLocation
 import CoreSpotlight
+import SwiftData
 
 @AssistantEntity(schema: .journal.entry)
 struct JournalEntryEntity {
     
-    struct JournalEntryEntityQuery: EntityStringQuery {
-        func entities(for identifiers: [JournalEntryEntity.ID]) async throws -> [JournalEntryEntity] { [] }
-        func entities(matching string: String) async throws -> [JournalEntryEntity] { [] }
+    static let defaultQuery = JournalQuery()
+    var displayRepresentation: DisplayRepresentation {
+        DisplayRepresentation(stringLiteral: title ?? "No Title")
     }
-    
-    static var defaultQuery = JournalEntryEntityQuery()
-    var displayRepresentation: DisplayRepresentation { "Unimplemented" }
     
     let id: UUID
     
@@ -46,5 +44,24 @@ extension JournalEntryEntity: IndexedEntity, Identifiable {
             attributeSet.contentDescription = String(message.characters[...])
         }
         return attributeSet
+    }
+}
+
+struct JournalQuery: EntityQuery {
+    
+    //used for Spotligh
+    @MainActor
+    func entities(for identifiers: [JournalEntryEntity.ID]) async throws -> [JournalEntryEntity] {
+        let modelContext = DataModel.shared.modelContainer.mainContext
+        let journals = try modelContext.fetch(FetchDescriptor<JournalEntry>(predicate: #Predicate { identifiers.contains($0.journalID) }))
+        return journals.map { JournalEntryEntity(item: $0) }
+    }
+    
+    func suggestedEntities() async throws -> [JournalEntryEntity] {
+        let modelContext = ModelContext(DataModel.shared.modelContainer)
+        var descriptor = FetchDescriptor<JournalEntry>(predicate: #Predicate { _ in true})
+        descriptor.fetchLimit = 8
+        let journals = try modelContext.fetch(descriptor)
+        return journals.map { JournalEntryEntity(item: $0) }
     }
 }

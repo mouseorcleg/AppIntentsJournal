@@ -153,3 +153,10 @@ final class JournalEntry {
         self.stateOfMind = stateOfMind ?? .creative
     }
 }
+
+extension JournalEntry {
+    var entity: JournalEntryEntity {
+        let entity = JournalEntryEntity(item: self)
+        return entity
+    }
+}

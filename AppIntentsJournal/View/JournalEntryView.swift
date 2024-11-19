@@ -76,6 +76,9 @@ struct JournalEntryView : View {
                         withAnimation {
                             save()
                         }
+                        Task{
+                            try? await CSSearchableIndex.default().indexAppEntities([journalEntry.entity])
+                        }
                         dismiss()
                     }
                 }
@@ -96,9 +99,5 @@ struct JournalEntryView : View {
            modelContext.insert(journalEntry)
         }
         try? modelContext.save()
-        
-        Task{
-            try? await CSSearchableIndex.default().indexAppEntities([JournalEntryEntity(item: journalEntry)])
-        }
     }
 }

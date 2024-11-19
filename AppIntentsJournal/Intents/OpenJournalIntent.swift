@@ -10,31 +10,26 @@ import SwiftData
 
 struct OpenJournalIntent: OpenIntent {
     static var title: LocalizedStringResource = "Open Journal Entry"
-    static var description: IntentDescription? = IntentDescription(stringLiteral: "Shows details for journal entry")
-    
+    static var description = IntentDescription("Shows the details for a specific journal entry.")
+
     @Parameter(title: "Journal Entry")
     var target: JournalEntryEntity
     
     @Dependency
-    private var navigation: NavigationManager
+    private var navigationManager: NavigationManager
     
     @MainActor
     func perform() async throws -> some IntentResult {
         do {
             let modelContext = DataModel.shared.modelContainer.mainContext
             let entityID = target.id
-            
-            let entries = try modelContext.fetch(FetchDescriptor<JournalEntry>(predicate: #Predicate { entry in
+            let journals = try modelContext.fetch(FetchDescriptor<JournalEntry>(predicate: #Predicate { entry in
                 entry.journalID == entityID
             }))
-
-            
-            guard let firstEntry = entries.first else {
+            guard let journal = journals.first else {
                 throw IntentError.noEntity
             }
-            
-            navigation.openJournalEntry(firstEntry)
-            
+            navigationManager.openJournalEntry(journal)
             return .result()
         } catch {
             throw IntentError.noEntity
